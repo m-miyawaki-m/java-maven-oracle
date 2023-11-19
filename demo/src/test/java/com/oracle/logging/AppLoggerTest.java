@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
 
-import com.oracle.logging.AppLogger;
-
 public class AppLoggerTest {
     private Logger loggerMock;
     private AppLogger appLogger;
