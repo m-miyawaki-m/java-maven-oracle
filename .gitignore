@@ -1,1 +1,21 @@
-/C:\Users\miyaw\Documents\GitHub
+# VS Code
+.vscode/
+
+# Docker
+*.log
+.docker
+
+# Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.logs
+*.ser
+hs_err_pid*
+
+# Maven
+log/
+target/
+work/
