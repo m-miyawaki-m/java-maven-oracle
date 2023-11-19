@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.oracle.logging.AppLogger;
 import com.oracle.model.SampleDataDTO;
 
 public class HistoryDAO {
@@ -46,5 +47,25 @@ public class HistoryDAO {
             e.printStackTrace();
         }
         return history;
+    }
+
+    // HelloWorld!を表示する
+    public static void getHelloWorld() throws SQLException{
+        AppLogger logger = AppLogger.getInstance();
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection connection = DBConnectorOracle.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT 'Hello World!' FROM dual");
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            logger.logerror("Connection Failed." + e.getMessage());
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            logger.logerror("Oracle JDBC Driver not found." + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

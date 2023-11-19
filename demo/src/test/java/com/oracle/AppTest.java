@@ -1,4 +1,4 @@
-package com.mysql;
+package com.oracle;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 

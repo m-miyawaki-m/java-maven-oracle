@@ -2,7 +2,6 @@ package com.oracle.service;
 
 import java.sql.SQLException;
 
-import com.oracle.dao.DBConnectorOracle;
 import com.oracle.dao.HistoryDAO;
 import com.oracle.logging.AppLogger;
 
@@ -12,7 +11,7 @@ public class DBService {
     public void getHelloWorld() throws SQLException, ClassNotFoundException {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            DBConnectorOracle.getHelloWorld();
+            HistoryDAO.getHelloWorld();
         } catch (SQLException e) {
             logger.logerror("Connection Failed." + e.getMessage());
             e.printStackTrace();

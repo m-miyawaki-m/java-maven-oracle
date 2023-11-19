@@ -36,25 +36,6 @@ public class DBConnectorOracle {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    // HelloWorld!を表示する
-    public static void getHelloWorld() throws SQLException{
-        AppLogger logger = AppLogger.getInstance();
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DBConnectorOracle.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT 'Hello World!' FROM dual");
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString(1));
-            }
-        } catch (SQLException e) {
-            logger.logerror("Connection Failed." + e.getMessage());
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            logger.logerror("Oracle JDBC Driver not found." + e.getMessage());
-            e.printStackTrace();
-        }
-    }
 
     
 }
