@@ -1,0 +1,6 @@
+CREATE TABLE dev_history (
+  No NUMBER NOT NULL,
+  sampleinput VARCHAR2(20),
+  update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (No)
+);
