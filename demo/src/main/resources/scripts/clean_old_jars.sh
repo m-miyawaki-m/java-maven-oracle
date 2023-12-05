@@ -1,5 +1,5 @@
 #!/bin/bash
-JAR_DIR=/workspaces/java-oracle/demo/work
+JAR_DIR=/workspaces/java-maven-oracle/demo/work
 JAR_COUNT=$(ls -t $JAR_DIR/*.jar | wc -l)
 if [ $JAR_COUNT -gt 5 ]; then
   # 古い順に削除

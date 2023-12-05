@@ -17,7 +17,7 @@ public class DBConnectorOracle {
     // 静的初期化ブロックは、クラスが初めてロードされるときに一度だけ実行
     static {
         Properties props = new Properties();
-        try (InputStream input = new FileInputStream("/workspaces/java-oracle/demo/src/main/resources/application.properties")) {
+        try (InputStream input = new FileInputStream("/workspaces/java-maven-oracle/demo/src/main/resources/application.properties")) {
             props.load(input);
             URL = props.getProperty("ORACLE_URL");
             USER = props.getProperty("ORACLE_USER");
