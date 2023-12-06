@@ -7,8 +7,9 @@ public class App {
     public static void main(String[] args) {
         DBService dbService = new DBService();
         try {
-            dbService.getHelloWorld();
-            dbService.getHistoryAndPrint();
+            // dbService.getHelloWorld();
+            // dbService.getHistoryAndPrint();
+            dbService.getProductDetailsAndPring();
         } catch (ClassNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

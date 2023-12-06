@@ -7,3 +7,12 @@ https://docs.oracle.com/en//database/oracle/oracle-database/23/comsc/HR-sample-s
 
 Oracle-guide
 https://www.oracle.com/database/technologies/maven-central-guide.html
+
+
+AWRレポート出力
+```bash
+sqlplus / as sysdba
+
+#SQL>にログイン後
+ @?/rdbms/admin/awrrpt.sql
+```
