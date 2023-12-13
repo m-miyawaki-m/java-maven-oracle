@@ -45,4 +45,15 @@ public class DBService {
         }catch(ClassCastException e){
         }
     }
+    public void getProductDetailsAndPringProcedure() throws SQLException, ClassNotFoundException{
+        try{
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            ProductDetailsViewDAO productDetailsViewDAO = new ProductDetailsViewDAO();
+            productDetailsViewDAO.getProductDetailsDTOsProcedure();
+        }catch(SQLException e){
+            logger.logerror("Connection Failed." + e.getMessage());
+            e.printStackTrace();
+        }catch(ClassCastException e){
+        }
+    }
 }
