@@ -24,7 +24,6 @@ public class ProductDetailsViewDAO {
         try {
             sql = new String(Files.readAllBytes(Paths.get(sqlFilePath)));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         if(sql != null){
