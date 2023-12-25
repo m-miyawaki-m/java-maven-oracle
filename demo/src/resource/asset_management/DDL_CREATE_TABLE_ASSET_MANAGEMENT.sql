@@ -1,0 +1,22 @@
+CREATE TABLE asset_management (
+    asset_classification VARCHAR(255),
+    asset_category VARCHAR(255),
+    town_name VARCHAR(255),
+    block_number INT,
+    main_number INT,
+    branch_number INT NULL,
+    sub_number INT NULL,
+    facility_name VARCHAR(255),
+    asset_name VARCHAR(255),
+    quantity FLOAT,
+    unit VARCHAR(10),
+    acquisition_date DATE,
+    acquisition_cost FLOAT,
+    accumulated_depreciation FLOAT NULL,
+    book_value_at_end FLOAT,
+    saleable_category VARCHAR(255) NULL,
+    market_value FLOAT NULL,
+    purpose VARCHAR(255),
+    property_category VARCHAR(255),
+    managing_department VARCHAR(255)
+);

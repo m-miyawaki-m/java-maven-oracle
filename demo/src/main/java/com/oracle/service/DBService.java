@@ -1,10 +1,14 @@
 package com.oracle.service;
 
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.List;
 
+import com.oracle.dao.EmployeesDAO;
 import com.oracle.dao.HistoryDAO;
 import com.oracle.dao.ProductDetailsViewDAO;
 import com.oracle.logging.AppLogger;
+import com.oracle.model.EmployeesDTO;
 
 public class DBService {
     private AppLogger logger = AppLogger.getInstance();
@@ -56,4 +60,50 @@ public class DBService {
         }catch(ClassCastException e){
         }
     }
+    
+    public List<EmployeesDTO> getEmployeesDTOs() throws SQLException, ClassNotFoundException{
+        List<EmployeesDTO> employeesDTOs = null;
+        try{
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            EmployeesDAO employeesDAO = new EmployeesDAO();
+            employeesDTOs = employeesDAO.getEmployeesDTOs().orElse(Collections.emptyList());
+        }catch(SQLException e){
+            logger.logerror("Connection Failed." + e.getMessage());
+            e.printStackTrace();
+        }catch(ClassCastException e){
+        }
+        return employeesDTOs;
+    }
+
+    public List<EmployeesDTO> getEmployeesDTOsTMP() throws SQLException, ClassNotFoundException{
+        List<EmployeesDTO> employeesDTOsTMP = null;
+        try{
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            EmployeesDAO employeesDAO = new EmployeesDAO();
+            employeesDTOsTMP = employeesDAO.getEmployeesDTOsTMP().orElse(Collections.emptyList());
+        }catch(SQLException e){
+            logger.logerror("Connection Failed." + e.getMessage());
+            e.printStackTrace();
+        }catch(ClassCastException e){
+        }
+        return employeesDTOsTMP;
+    }
+
+    public boolean compareEmployeesDTOsAndEmployeesDTOsTMP() throws SQLException, ClassNotFoundException{
+        boolean isSame = false;
+        try{
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            EmployeesDAO employeesDAO = new EmployeesDAO();
+            List<EmployeesDTO> employeesDTOs = employeesDAO.getEmployeesDTOs().orElse(Collections.emptyList());
+            List<EmployeesDTO> employeesDTOsTMP = employeesDAO.getEmployeesDTOsTMP().orElse(Collections.emptyList());
+            isSame = employeesDTOs.equals(employeesDTOsTMP);
+        }catch(SQLException e){
+            logger.logerror("Connection Failed." + e.getMessage());
+            e.printStackTrace();
+        }catch(ClassCastException e){
+        }
+        return isSame;
+    }
+
+
 }

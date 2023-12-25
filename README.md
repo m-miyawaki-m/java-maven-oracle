@@ -1,3 +1,6 @@
+検討資料
+INPUT資料
+https://onedrive.live.com/?id=D61D3360E05C1DEA%21190981&cid=D61D3360E05C1DEA
 
 GetStarted
 https://www.oracle.com/jp/database/free/get-started/
