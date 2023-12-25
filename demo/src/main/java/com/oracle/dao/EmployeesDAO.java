@@ -11,7 +11,10 @@ import java.util.Optional;
 import com.oracle.model.EmployeesDTO;
 
 public class EmployeesDAO {
-    public static Optional<List<EmployeesDTO>> getEmployeesDTOs() throws SQLException {
+    public EmployeesDAO() {
+    }
+
+    public Optional<List<EmployeesDTO>> getEmployeesDTOs() throws SQLException {
         List<EmployeesDTO> employeesDTOs = new ArrayList<>();
         try (Connection connection = DBConnectorOracle.getConnection();
                 Statement statement = connection.createStatement();
@@ -39,7 +42,7 @@ public class EmployeesDAO {
         return Optional.ofNullable(employeesDTOs).isEmpty() ? null : Optional.of(employeesDTOs);
     }
 
-    public static Optional<List<EmployeesDTO>> getEmployeesDTOsTMP() throws SQLException {
+    public Optional<List<EmployeesDTO>> getEmployeesDTOsTMP() throws SQLException {
         List<EmployeesDTO> employeesDTOs = new ArrayList<>();
         try (Connection connection = DBConnectorOracle.getConnection();
                 Statement statement = connection.createStatement();

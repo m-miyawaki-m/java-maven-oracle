@@ -65,7 +65,8 @@ public class DBService {
         List<EmployeesDTO> employeesDTOs = null;
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            employeesDTOs = EmployeesDAO.getEmployeesDTOs().orElse(Collections.emptyList());
+            EmployeesDAO employeesDAO = new EmployeesDAO();
+            employeesDTOs = employeesDAO.getEmployeesDTOs().orElse(Collections.emptyList());
         }catch(SQLException e){
             logger.logerror("Connection Failed." + e.getMessage());
             e.printStackTrace();
@@ -78,7 +79,8 @@ public class DBService {
         List<EmployeesDTO> employeesDTOsTMP = null;
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            employeesDTOsTMP = EmployeesDAO.getEmployeesDTOsTMP().orElse(Collections.emptyList());
+            EmployeesDAO employeesDAO = new EmployeesDAO();
+            employeesDTOsTMP = employeesDAO.getEmployeesDTOsTMP().orElse(Collections.emptyList());
         }catch(SQLException e){
             logger.logerror("Connection Failed." + e.getMessage());
             e.printStackTrace();
@@ -91,8 +93,9 @@ public class DBService {
         boolean isSame = false;
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            List<EmployeesDTO> employeesDTOs = EmployeesDAO.getEmployeesDTOs().orElse(Collections.emptyList());
-            List<EmployeesDTO> employeesDTOsTMP = EmployeesDAO.getEmployeesDTOsTMP().orElse(Collections.emptyList());
+            EmployeesDAO employeesDAO = new EmployeesDAO();
+            List<EmployeesDTO> employeesDTOs = employeesDAO.getEmployeesDTOs().orElse(Collections.emptyList());
+            List<EmployeesDTO> employeesDTOsTMP = employeesDAO.getEmployeesDTOsTMP().orElse(Collections.emptyList());
             isSame = employeesDTOs.equals(employeesDTOsTMP);
         }catch(SQLException e){
             logger.logerror("Connection Failed." + e.getMessage());

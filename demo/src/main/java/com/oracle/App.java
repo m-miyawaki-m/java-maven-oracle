@@ -9,8 +9,8 @@ public class App {
         try {
             // dbService.getHelloWorld();
             // dbService.getHistoryAndPrint();
-            dbService.getProductDetailsAndPring();
-            dbService.getProductDetailsAndPringProcedure();
+            // dbService.getProductDetailsAndPring();
+            // dbService.getProductDetailsAndPringProcedure();
             boolean isSame = dbService.compareEmployeesDTOsAndEmployeesDTOsTMP();
             System.out.println("isSame: " + isSame);
         } catch (ClassNotFoundException e) {
